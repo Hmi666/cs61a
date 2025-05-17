@@ -1,5 +1,6 @@
 from operator import add, sub
 
+
 def a_plus_abs_b(a, b):
     """Return a+abs(b), but without calling abs.
 
@@ -13,18 +14,19 @@ def a_plus_abs_b(a, b):
     3
     """
     if b < 0:
-        f = _____
+        f = sub
     else:
-        f = _____
+        f = add
     return f(a, b)
+
 
 def a_plus_abs_b_syntax_check():
     """Check that you didn't change the return statement of a_plus_abs_b.
-`
-    >>> # You aren't expected to understand the code of this test.
-    >>> import inspect, re
-    >>> re.findall(r'^\s*(return .*)', inspect.getsource(a_plus_abs_b), re.M)
-    ['return f(a, b)']
+    `
+        >>> # You aren't expected to understand the code of this test.
+        >>> import inspect, re
+        >>> re.findall(r'^\s*(return .*)', inspect.getsource(a_plus_abs_b), re.M)
+        ['return f(a, b)']
     """
     # You don't need to edit this function. It's just here to check your work.
 
@@ -42,7 +44,9 @@ def two_of_three(i, j, k):
     >>> two_of_three(5, 5, 5)
     50
     """
-    return _____
+
+    return min(i * i + j * j, i * i + k * k, j * j + k * k)
+
 
 def two_of_three_syntax_check():
     """Check that your two_of_three code consists of nothing but a return statement.
@@ -67,6 +71,12 @@ def largest_factor(n):
     """
     "*** YOUR CODE HERE ***"
 
+    j = 1
+    for i in range(n // 2, 0, -1):
+        if n % i == 0:
+            j = max(i,j)
+    return j
+
 
 def hailstone(n):
     """Print the hailstone sequence starting at n and return its
@@ -89,7 +99,14 @@ def hailstone(n):
     """
     "*** YOUR CODE HERE ***"
 
+    print(n)
+    sum = 1
+    while n != 1:
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            n = n * 3 + 1
+        print(n)
+        sum += 1
 
-    
-
-
+    return sum
